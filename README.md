@@ -5,4 +5,4 @@
 - Backendul este realizat in C#, .NET si clasele contin functionalitatile CRUD. Acestea sunt legate de o baza de date pentru a stoca informatiile.
 - Frontendul este realizat in Angular.
 
-- https://www.dropbox.com/s/keorzyfoqfg1u3n/DAW_Predescu_Denisa_242.zip?dl=0
+- proiectul arhivat se gaseste si pe dropbox: https://www.dropbox.com/s/keorzyfoqfg1u3n/DAW_Predescu_Denisa_242.zip?dl=0
