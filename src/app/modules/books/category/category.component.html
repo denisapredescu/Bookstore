@@ -1,0 +1,54 @@
+
+<div class="list">
+<!--<p class="title">Number of books listed by category:</p>-->
+<table class="categoryList"> 
+  <tr class="title">
+    <th>Category</th>
+    <th>Number of books</th>
+  </tr>
+  <tr *ngFor="let list of messageFromBooks">
+    <td>{{list.name}}</td>
+    <td>{{list.num}}</td>
+  </tr>
+</table>
+</div>
+
+<div class = "container">   
+    <table mat-table [dataSource]="categories" class="mat-elevation-z8 demo-table table">
+
+    <ng-container matColumnDef="Category">
+      <th [class.user]="!isAdmin()" [class.admin]='isAdmin()' mat-header-cell *matHeaderCellDef>Category</th>
+      <td [class.user]="!isAdmin()" [class.admin]='isAdmin()' mat-cell *matCellDef="let element">{{element.name}}</td>
+    </ng-container>
+
+    <ng-container  *ngIf="isAdmin()" matColumnDef="edit">
+        <th [class.user]="!isAdmin()" [class.admin]='isAdmin()' mat-header-cell *matHeaderCellDef>Edit Category</th>
+        <td [class.user]="!isAdmin()" [class.admin]='isAdmin()' mat-cell *matCellDef="let element" (click)="edit(element)">
+          <mat-icon>
+            edit
+          </mat-icon>
+        </td>
+      </ng-container>
+
+    <ng-container  matColumnDef="select">
+      <th [class.user]="!isAdmin()" [class.admin]='isAdmin()' mat-header-cell *matHeaderCellDef>Select Category</th>
+      <td [class.user]="!isAdmin()" [class.admin]='isAdmin()' mat-cell *matCellDef="let element" (click)="select(element)">
+        <mat-icon>
+          add
+        </mat-icon>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+
+    <button mat-raised-button *ngIf="isAdmin()" (click)="add()" class="add-button">
+        Add category
+    </button>
+    <button mat-raised-button *ngIf="isAdmin()" (click)="delete()" class="add-button delete-button">
+        Delete categories
+    </button>
+
+</div>

@@ -1,0 +1,19 @@
+<div class="popup-container">
+    <h1 class="title">
+      {{ title }}
+    </h1>
+  
+    <form [formGroup]="categoryForm" class="form">
+  
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Name" formControlName="name"/>
+      </mat-form-field>
+      
+    </form>
+    
+    <button mat-raised-button (click)="!data.category ? add() : edit()">
+      Save
+    </button>
+  </div> 
+  

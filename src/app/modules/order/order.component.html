@@ -1,0 +1,24 @@
+<div class="container">
+    <h1 class="title">
+      Orders
+    </h1>
+
+    
+<!--<ul>
+     
+    <li *ngFor="let order of orders">
+       <span style="white-space: pre-line">{{order}}</span>
+    </li> 
+</ul>
+-->
+
+<table>
+  <tr *ngFor="let order of orders">
+    <td class="line"><span style="white-space: pre-line">{{ order }}</span></td>
+  </tr>
+</table>
+
+<button mat-raised-button class = "button" (click)="goBack()">Books</button>
+  
+</div>
+  

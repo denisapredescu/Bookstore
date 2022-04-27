@@ -1,0 +1,66 @@
+<p>Hi, {{email}}</p>
+
+<button mat-raised-button class = "buttonGoBack" (click)="goBack()">
+  Books
+</button>
+  
+
+
+<button mat-raised-button class="button" (click)="delete()">
+  Delete all
+</button>
+
+
+<div class="container">
+  <p class="message" *ngIf = "!bookbasket.length">{{message}}</p>
+
+  <table mat-table *ngIf = "bookbasket.length" [dataSource]="bookbasket"  class="mat-elevation-z8 demo-table table">
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let element">{{element.name}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef>Price</th>
+      <td mat-cell *matCellDef="let element">{{element.price}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="noCopiesInBasket">
+      <th mat-header-cell *matHeaderCellDef>No. Copies</th>
+      <td mat-cell *matCellDef="let element">{{element.noCopiesInBasket}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="priceOfNoCopies">
+      <th mat-header-cell *matHeaderCellDef>Price of no. copies</th>
+      <td mat-cell *matCellDef="let element">{{element.priceOfNoCopies}}</td>
+    </ng-container>
+
+    <ng-container  matColumnDef="plus">
+      <th mat-header-cell *matHeaderCellDef>Increase number</th>
+      <td mat-cell *matCellDef="let element" (click)="plus(element)">
+        <mat-icon>
+          add
+        </mat-icon>
+      </td>
+    </ng-container>
+
+    <ng-container  matColumnDef="minus">
+      <th mat-header-cell *matHeaderCellDef>Decrease number</th>
+      <td mat-cell *matCellDef="let element" (click)="minus(element)">
+        <mat-icon>
+          minimize
+        </mat-icon>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <p>{{totalPrice}}</p>
+</div>
+
+<button mat-raised-button class="button" (click)="makeOrder()">
+  Make order
+</button>

@@ -1,0 +1,63 @@
+.button{
+    margin-right: 70px;
+    margin-top: 70px;
+    float: right;
+}
+
+.buttonGo{
+  margin-right: 70px;
+  float: right;
+}
+
+
+.buttonLogout{
+    margin: 70px;
+    float: left;
+}
+
+.sorting{
+    width: 100%;
+    margin-top: 10%;
+    height: 80%;
+    align-items:center;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+    .title {
+      font-size: 24px;
+      font-weight: bold;
+      color: #777777;
+      margin-bottom: 30px;
+    }
+  
+    .table {
+      width: 60%;
+      margin-bottom: 50px auto;
+    }
+  
+    .add-button {
+      margin: 70px;
+    }
+  }
+
+  .user {
+    width: calc(100%/7);
+    text-align: center;
+  }
+
+  .admin {
+    width: calc(100%/9);
+    text-align: center;
+  }
+
+  ::ng-deep.mat-tab-body-wrapper{
+    width: 100% !important;
+  }
+  

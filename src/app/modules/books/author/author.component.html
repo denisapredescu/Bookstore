@@ -1,0 +1,69 @@
+ <div class = "container">   
+    <table mat-table [dataSource]="authors" class="mat-elevation-z8 demo-table table">
+
+    <ng-container matColumnDef="Id">
+        <th [class.user]="!isAdmin()" [class.admin]='isAdmin()' mat-header-cell *matHeaderCellDef>Id</th>
+        <td [class.user]="!isAdmin()" [class.admin]='isAdmin()' mat-cell *matCellDef="let element">{{element.id}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="First Name">
+      <th [class.user]="!isAdmin()" [class.admin]='isAdmin()' mat-header-cell *matHeaderCellDef>Firstname</th>
+      <td [class.user]="!isAdmin()" [class.admin]='isAdmin()' mat-cell *matCellDef="let element">{{element.firstName}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Last Name">
+      <th [class.user]="!isAdmin()" [class.admin]='isAdmin()' mat-header-cell *matHeaderCellDef>Lastname</th>
+      <td [class.user]="!isAdmin()" [class.admin]='isAdmin()' mat-cell *matCellDef="let element">{{element.lastName}}</td>
+    </ng-container>
+
+    <ng-container  matColumnDef="More details">
+      <th [class.user]="!isAdmin()" [class.admin]='isAdmin()' mat-header-cell *matHeaderCellDef>More details</th>
+      <td [class.user]="!isAdmin()" [class.admin]='isAdmin()' mat-cell *matCellDef="let element" (click)="info(element)">
+        <mat-icon>
+          add
+        </mat-icon>
+      </td>
+    </ng-container>
+
+    <ng-container *ngIf="isAdmin()" matColumnDef="edit">
+        <th [class.user]="!isAdmin()" [class.admin]='isAdmin()' mat-header-cell *matHeaderCellDef>Edit</th>
+        <td [class.user]="!isAdmin()" [class.admin]='isAdmin()' mat-cell *matCellDef="let element" (click)="edit(element)">
+          <mat-icon>
+            edit
+          </mat-icon>
+        </td>
+      </ng-container>
+
+    <ng-container *ngIf="isAdmin()" matColumnDef="delete">
+      <th [class.user]="!isAdmin()" [class.admin]='isAdmin()' mat-header-cell *matHeaderCellDef>Delete</th>
+      <td [class.user]="!isAdmin()" [class.admin]='isAdmin()' mat-cell *matCellDef="let element" (click)="delete(element)">
+        <mat-icon>
+          delete
+        </mat-icon>
+      </td>
+    </ng-container>
+
+    <ng-container  matColumnDef="select">
+      <th [class.user]="!isAdmin()" [class.admin]='isAdmin()' mat-header-cell *matHeaderCellDef>Select</th>
+      <td [class.user]="!isAdmin()" [class.admin]='isAdmin()' mat-cell *matCellDef="let element" (click)="select(element)">
+        <mat-icon>
+          add
+        </mat-icon>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+
+    <button mat-raised-button *ngIf="isAdmin()" (click)="add()" class="add-button">
+        Add Author
+    </button>
+
+
+</div>
+
+
+
+

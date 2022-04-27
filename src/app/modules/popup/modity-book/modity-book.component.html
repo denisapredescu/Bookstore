@@ -1,0 +1,44 @@
+<div class="container">
+  <h1 class="title">
+    {{ title }}
+  </h1>
+
+  <form [formGroup]="bookForm" class="form">
+
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <input matInput placeholder="Name" formControlName="name"/>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Price</mat-label>
+      <input matInput placeholder="Price" formControlName="price"/>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>NoPages</mat-label>
+      <input matInput placeholder="NoPages" formControlName="noPages"/>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Year</mat-label>
+      <input matInput placeholder="Year" formControlName="year"/>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>NoVolume</mat-label>
+      <input matInput placeholder="NoVolume" formControlName="noVolume"/>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Series</mat-label>
+      <input matInput placeholder="Series" formControlName="seriesName"/>
+    </mat-form-field>
+    
+  </form>
+  
+  <button mat-raised-button (click)="!data.book ? add() : edit()">
+    Save
+  </button>
+</div> 
+

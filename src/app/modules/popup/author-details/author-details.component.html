@@ -1,0 +1,24 @@
+
+<div class="container">
+    <h1 class="title">
+      {{ title  }}
+    </h1>
+  
+      <p class="details">
+        {{ 'First Name' | marks }} {{ data.firstName | uppercase}}
+      </p>
+      <p class="details">
+        {{ 'Last Name' | marks}} {{ data.lastName  | uppercase }}
+      </p>
+      <p  *ngIf = "authorInfo.nationality !== null" class="details">
+        {{ 'Nationality' | marks }} {{ authorInfo.nationality  | uppercase }}
+      </p>
+      <p *ngIf = "authorInfo.birthYear !== null" class="details">
+        {{ 'Birth year' | marks }} {{ authorInfo.birthYear }}
+      </p>
+      <p *ngIf = "authorInfo.deathYear !== null" class="details">
+        {{ 'Death Year' | marks }} {{ authorInfo.deathYear }}
+      </p>
+  </div>
+  
+  

@@ -1,0 +1,59 @@
+
+.list{
+  text-align: center;
+
+  .categoryList{
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    margin: auto;
+    margin-top: 40px;
+
+    table, th, td {
+      border: 1px solid black;
+      width: calc(100%/2);
+    }
+  }
+  .title{
+    margin-top: 10px;
+    color: #777777;
+  }
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+    .table {
+      width: 60%;
+      margin: 50px auto;
+    }
+  
+    .add-button {
+      margin-top: 20px;
+      align-items: center;
+      display: flex;
+    }
+
+    .mat-header-row {
+        height: 1px;
+    }
+  }
+
+  .user {
+    width: 50%;
+    text-align: center;
+  }
+
+  .admin {
+    width: calc(100%/3);
+    text-align: center;
+  }
+
+  .delete-button {
+    margin-bottom: 20px;
+  }

@@ -1,0 +1,102 @@
+<button mat-raised-button class="button" (click)="auth()" appHoverButton>
+  Go to auth
+</button>
+
+
+<button mat-raised-button class="button" (click)="goToUserBasket()" appHoverButton>
+  Basket
+</button>
+
+<button mat-raised-button class="button" (click)="goToOrders()" appHoverButton>
+  Orders
+</button>
+
+<button mat-raised-button class="buttonLogout" (click)="logout()" appHoverButton>
+  Logout
+</button>
+
+
+<mat-tab-group class="sorting">
+    <mat-tab label="Categories"><app-category  [messageFromBooks] = "parentMessage" (givenCategory) = "receiveMessageFromCategory($event)"></app-category></mat-tab>
+    <mat-tab label="Authors"><app-author (givenAuthor) = "receiveMessageFromAuthor($event)"></app-author></mat-tab>
+</mat-tab-group>
+
+<button mat-raised-button class="buttonGo" (click)="saveChangings()" appHoverButton>
+  Filter
+</button>
+
+<div class="container">
+  <h1 class="title">
+    Books
+  </h1>
+
+  <table mat-table [dataSource]="books" class="mat-elevation-z8 demo-table table">
+
+    <ng-container matColumnDef="name">
+      <th [class.user]="role !== 'Admin'" [class.admin]="role === 'Admin'" mat-header-cell *matHeaderCellDef>Name</th>
+      <td [class.user]="role !== 'Admin'" [class.admin]="role === 'Admin'" mat-cell *matCellDef="let element">{{element.name}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="price">
+      <th [class.user]="role !== 'Admin'" [class.admin]="role === 'Admin'" mat-header-cell *matHeaderCellDef>Price</th>
+      <td [class.user]="role !== 'Admin'" [class.admin]="role === 'Admin'" mat-cell *matCellDef="let element">{{element.price}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="year">
+      <th [class.user]="role !== 'Admin'" [class.admin]="role === 'Admin'" mat-header-cell *matHeaderCellDef>Year</th>
+      <td [class.user]="role !== 'Admin'" [class.admin]="role === 'Admin'" mat-cell *matCellDef="let element">{{element.year}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="noPages">
+      <th [class.user]="role !== 'Admin'" [class.admin]="role === 'Admin'" mat-header-cell *matHeaderCellDef>No. pages</th>
+      <td [class.user]="role !== 'Admin'" [class.admin]="role === 'Admin'" mat-cell *matCellDef="let element">{{element.noPages}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="noVolume">
+      <th [class.user]="role !== 'Admin'" [class.admin]="role === 'Admin'" mat-header-cell *matHeaderCellDef>No. volume</th>
+      <td [class.user]="role !== 'Admin'" [class.admin]="role === 'Admin'" mat-cell *matCellDef="let element">{{element.noVolume}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="seriesName">
+      <th [class.user]="role !== 'Admin'" [class.admin]="role === 'Admin'" mat-header-cell *matHeaderCellDef>Series Name</th>
+      <td [class.user]="role !== 'Admin'" [class.admin]="role === 'Admin'" mat-cell *matCellDef="let element">{{element.seriesName}}</td>
+    </ng-container>
+
+    <ng-container  matColumnDef="edit">
+      <th [class.user]="role !== 'Admin'" [class.admin]="role === 'Admin'" mat-header-cell *matHeaderCellDef>Edit</th>
+      <td [class.user]="role !== 'Admin'" [class.admin]="role === 'Admin'" mat-cell *matCellDef="let element" (click)="edit(element)">
+        <mat-icon>
+          edit
+        </mat-icon>
+      </td>
+    </ng-container>
+
+    <ng-container  matColumnDef="delete">
+      <th [class.user]="role !== 'Admin'" [class.admin]="role === 'Admin'" mat-header-cell *matHeaderCellDef>Delete</th>
+      <td [class.user]="role !== 'Admin'" [class.admin]="role === 'Admin'" mat-cell *matCellDef="let element" (click)="delete(element)">
+        <mat-icon>
+          delete
+        </mat-icon>
+      </td>
+    </ng-container>
+
+    <ng-container  matColumnDef="addToBasket">
+      <th [class.user]="role !== 'Admin'" [class.admin]="role === 'Admin'" mat-header-cell *matHeaderCellDef>Add To Basket</th>
+      <td [class.user]="role !== 'Admin'" [class.admin]="role === 'Admin'" mat-cell *matCellDef="let element" (click)="addToBasket(element)">
+        <mat-icon>
+          add
+        </mat-icon>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <button mat-raised-button *ngIf = "role === 'Admin'" (click)="add()" class="add-button">
+    Add Book
+  </button>
+</div>
+
+
+

@@ -1,0 +1,44 @@
+<p>Register</p>
+
+<div class="container">
+    <div class="form-section">
+  
+      <form [formGroup]="registerForm" class="form">
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput 
+          placeholder="email" 
+          formControlName="email"/>
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input matInput 
+          placeholder="password" 
+          type="password" 
+          formControlName="password"/>
+        </mat-form-field>
+
+        <div [hidden] = "NotAdmin()">
+        <mat-form-field appearance="outline">
+            <mat-label>Role</mat-label>
+            <input matInput 
+            placeholder="role" 
+            formControlName="role"/>
+        </mat-form-field>
+        </div>
+      </form>
+      
+      <button 
+      mat-raised-button
+      [disabled]="registerForm.invalid" 
+       (click)="register()">
+        Register
+      </button>
+
+   </div>
+
+</div>
+
+<div class="alert alert-danger" [hidden]="!error">{{error}}</div>
+ 

@@ -1,0 +1,30 @@
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #777777;
+    margin: 40px;
+  }
+
+.auth-container {
+    display: flex;
+    height: 70%;
+    width: 80%;
+    margin: 20px auto;
+
+    .login-section {
+        width: 50%;
+        padding: 10px;
+        margin:20px;
+        background-color:rgb(248, 244, 237);
+    }
+
+    .register-section {
+        width: 50%;
+        margin:20px;
+        background-color:rgb(248, 244, 237);
+    }
+}
+
+.button{
+    margin: 40px;
+}
